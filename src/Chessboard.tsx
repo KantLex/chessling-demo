@@ -171,15 +171,21 @@ export function Chessboard({
     const rows = fen.split(' ')[0].split('/');
     for (let r = 0; r < 8; r++) {
       const row: (string | null)[] = [];
-      for (let c = 0; c < 8; c++) {
-        const ch = rows[r][c];
+      let col = 0;
+      let strIdx = 0;
+      while (col < 8 && strIdx < rows[r].length) {
+        const ch = rows[r][strIdx];
         if (ch >= '1' && ch <= '8') {
           for (let i = 0; i < parseInt(ch); i++) row.push(null);
-          c += parseInt(ch) - 1;
+          col += parseInt(ch);
         } else {
           row.push(ch);
+          col++;
         }
+        strIdx++;
       }
+      // Pad if needed
+      while (row.length < 8) row.push(null);
       b.push(row);
     }
     return b;
