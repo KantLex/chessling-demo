@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+dist/
+
+# Vite
+*.local
+
+# Misc
+.DS_Store
+*.zip
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Vercel
+.vercel
+
+# OS
+Thumbs.db
